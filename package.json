@@ -4,20 +4,35 @@
   "description": "A proof-of-concept bag creator",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "pack": "build --dir",
+    "dist": "build --linux --windows --mac --x64 --ia32",
+    "release":   "build --linux --windows --mac --x64 --ia32 --publish always"
   },
   "repository": "https://github.com/electron/electron-quick-start",
   "keywords": [],
-  "author": "bdwheele",
+  "author": "Brian Wheeler <bdwheele@indiana.edu>",
   "license": "Apache-2.0",
   "devDependencies": {
     "electron": "~1.6.2",
-    "electron-packager": "^8.7.0"
+    "electron-builder": "^18.0.1"
   },
   "dependencies": {
     "digest-stream": "^2.0.0",
     "es6-promise-pool": "^2.4.4",
     "md5-file": "^3.1.1",
     "tar-stream": "^1.5.4"
+  },
+  "build": {
+      "appId": "edu.indiana.dlib.BagIt",
+      "mac": {
+          "target": ["zip"]
+      },
+      "linux": {
+          "target": ["rpm", "tar.gz"]
+      },
+      "win": {
+          "target": ["nsis", "zip"]
+      }
   }
 }
