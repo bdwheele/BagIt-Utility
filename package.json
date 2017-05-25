@@ -1,0 +1,23 @@
+{
+  "name": "bagit",
+  "version": "0.1.0",
+  "description": "A proof-of-concept bag creator",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "https://github.com/electron/electron-quick-start",
+  "keywords": [],
+  "author": "bdwheele",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "electron": "~1.6.2",
+    "electron-packager": "^8.7.0"
+  },
+  "dependencies": {
+    "digest-stream": "^2.0.0",
+    "es6-promise-pool": "^2.4.4",
+    "md5-file": "^3.1.1",
+    "tar-stream": "^1.5.4"
+  }
+}

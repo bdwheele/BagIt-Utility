@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>BagIt!</title>
+    <link rel="stylesheet" href="./material.css">
+    <script src="./material.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  </head>
+  <body>    
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header
+                mdl-layout--fixed-tabs">
+      <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+          <!-- Title -->
+          <span class="mdl-layout-title">BagIt! Utility</span>
+        </div>
+
+
+        
+        <!-- Tabs -->
+        <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+          <a href="#fixed-tab-1" class="mdl-layout__tab is-active">Source Content</a>
+          <a id="std-tags-tab" href="#fixed-tab-2" class="mdl-layout__tab">Standard Tags</a>
+          <!-- <a href="#fixed-tab-3" class="mdl-layout__tab">Custom Tags</a> -->
+          <a id="bag-tab" href="#fixed-tab-4" class="mdl-layout__tab">Create Bag</a>
+        </div>
+      </header>
+      <!-- Menu -->
+      <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title">BagIt!</span>
+        <nav>
+          <ul>
+            <li class="mdl-list__item"><a id="about-menu" class="mdl-navigation__link" href="#">About</a></li>
+            <li class="mdl-list__item"><a id="debug-menu" class="mdl-navigation__link" href="#">Debug</a></li>
+            <li class="mdl-list__item"><a id="exit-menu" class="mdl-navigation__link" href="#">Exit</a></li>
+          </ul>
+        </nav>
+      </div>
+      <main class="mdl-layout__content">
+        <section class="mdl-layout__tab-panel is-active" id="fixed-tab-1">
+          <div class="page-content">
+            <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" id="bag-data-source-button">
+              <i class="material-icons">folder open</i>
+            </button>
+            <span id="bag-data-source">No Directory Specified</span>
+            <div>
+              <h4>Files:</h4>
+              <pre id="bag-data-source-listing">
+              </pre>
+            </div>            
+          </div>
+        </section>
+        <section class="mdl-layout__tab-panel" id="fixed-tab-2">
+          <div class="page-content">
+            <h4>Organization</h4>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="std-Source-Organization" required="true">
+              <label class="mdl-textfield__label" for="std-Source-Organization">Source-Organization</label>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="std-Organization-Address" required="true">
+              <label class="mdl-textfield__label" for="std-Organization-Address">Organization-Address</label>
+            </div>
+            <h4>Contact</h4>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="std-Contact-Name" required="true">
+              <label class="mdl-textfield__label" for="std-Contact-Name">Contact-Name</label>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="std-Contact-Phone" pattern="^\d{3}-\d{3}-\d{4}$">
+              <label class="mdl-textfield__label" for="std-Contact-Phone">Contact-Phone</label>
+              <span class="mdl-textfield__error">Must be xxx-xxx-xxxx</span>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="email" id="std-Contact-Email" required="true">
+              <label class="mdl-textfield__label" for="std-Contact-Email">Contact-Email</label>
+              <span class="mdl-textfield__error">Must be a valid email address</span>
+            </div>
+            <h4>Bag Description</h4>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="std-External-Identifier" required="true">
+              <label class="mdl-textfield__label" for="std-External-Identifier">External-Identifier</label>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="std-External-Description">
+              <label class="mdl-textfield__label" for="std-External-Description">External-Description</label>
+            </div>
+            <h4>Bag Group</h4>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="std-Bag-Group-Identifier">
+              <label class="mdl-textfield__label" for="std-Bag-Group-Identifier">Bag-Group-Identifier</label>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="std-Bag-Count">
+              <label class="mdl-textfield__label" for="std-Bag-Count">Bag-Count</label>
+            </div>
+            <h4>Internal Identifiers</h4>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="std-Internal-Sender-Identifier">
+              <label class="mdl-textfield__label" for="std-Internal-Sender-Identifier">Internal-Sender-Identifier</label>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="std-Internal-Sender-Description">
+              <label class="mdl-textfield__label" for="std-Internal-Sender-Description">Internal-Sender-Description</label>
+            </div>
+            
+            
+            
+            
+          </div>
+        </section>
+        <section class="mdl-layout__tab-panel" id="fixed-tab-3">
+          <div class="page-content">Not implemented yet
+            
+          </div>
+        </section>
+        <section class="mdl-layout__tab-panel" id="fixed-tab-4">
+          <div class="page-content">
+            <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" id="bag-build-button">
+              <i class="material-icons">build</i>
+            </button>
+            <span id="bag-build-status"></span>
+            
+            <div>
+              <h4>Status:</h4>
+              <pre id="bag-build-messages">
+              </pre>
+            </div>  
+            
+          </div>
+        </section>
+        
+        
+      </main>
+    </div>
+    
+    
+    
+    <dialog id="about-dialog" class="mdl-dialog">
+      <div class="mdl-dialog__content">
+        <h3>About BagIt!</h3>
+        <!-- All of the Node.js APIs are available in this renderer process. -->
+        We are using Node.js <script>document.write(process.versions.node)</script>,
+        Chromium <script>document.write(process.versions.chrome)</script>,
+        and Electron <script>document.write(process.versions.electron)</script>.
+      </div>
+      <div class="mdl-dialog__actions"> <!--  mdl-dialog__actions--full-width"> -->
+        <button type="button" class="mdl-button close">OK</button>
+      </div>       
+    </dialog>
+    
+    <dialog id="filescan-dialog" class="mdl-dialog">
+      <div class="mdl-dialog__content">
+        Scannin...: <span id="scan-directory"></span>
+        <div id="p2" class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
+      </div>
+    </dialog>
+
+    <dialog id="build-dialog" class="mdl-dialog">
+      <div class="mdl-dialog__content">
+        Building Tarball: <span id="build-step">12345678901234567890123456789</span>
+        <div id="pack-progress" class="mdl-progress mdl-js-progress"></div>
+      </div>
+    </dialog>
+  </body>
+  <script>
+    require('./renderer.js')
+  </script>
+</html>
