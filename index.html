@@ -140,10 +140,31 @@
     <dialog id="about-dialog" class="mdl-dialog">
       <div class="mdl-dialog__content">
         <h3>About BagIt!</h3>
-        <!-- All of the Node.js APIs are available in this renderer process. -->
-        We are using Node.js <script>document.write(process.versions.node)</script>,
-        Chromium <script>document.write(process.versions.chrome)</script>,
-        and Electron <script>document.write(process.versions.electron)</script>.
+        Copyright 2017 Trustees of Indiana University
+        <br>
+        <h5>System configuration</h5>
+        <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+          <thead>
+            <tr>
+              <th class="mdl-data-table__cell--non-numeric">Component</th>
+              <th class="mdl-data-table__cell">Version</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="mdl-data-table__cell--non-numeric">Node.js</td>
+              <td class="mdl-data-table__cell"><script>document.write(process.versions.node)</script></td>
+            </tr>
+            <tr>
+              <td class="mdl-data-table__cell--non-numeric">Chromium</td>
+              <td class="mdl-data-table__cell"><script>document.write(process.versions.chrome)</script></td>
+            </tr>
+            <tr>
+              <td class="mdl-data-table__cell--non-numeric">Electron</td>
+              <td class="mdl-data-table__cell"><script>document.write(process.versions.electron)</script></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
       <div class="mdl-dialog__actions"> <!--  mdl-dialog__actions--full-width"> -->
         <button type="button" class="mdl-button close">OK</button>
