@@ -1,5 +1,5 @@
 {
-  "name": "bagit",
+  "name": "BagIt Utility",
   "version": "0.1.0",
   "description": "A proof-of-concept bag creator",
   "main": "main.js",
@@ -7,7 +7,7 @@
     "start": "electron .",
     "pack": "build --dir",
     "dist": "build --linux --windows --mac --x64 --ia32",
-    "release":   "build --linux --windows --mac --x64 --ia32 --publish always"
+    "release": "build --linux --windows --mac --x64 --ia32 --publish always"
   },
   "repository": "https://github.com/electron/electron-quick-start",
   "keywords": [],
@@ -24,15 +24,22 @@
     "tar-stream": "^1.5.4"
   },
   "build": {
-      "appId": "edu.indiana.dlib.BagIt",
-      "mac": {
-          "target": ["zip"]
-      },
-      "linux": {
-          "target": ["rpm", "tar.gz"]
-      },
-      "win": {
-          "target": ["nsis", "zip"]
-      }
+    "appId": "edu.indiana.dlib.BagIt",
+    "mac": {
+      "target": [
+        "zip"
+      ]
+    },
+    "linux": {
+      "target": [
+        "tar.gz"
+      ]
+    },
+    "win": {
+      "target": [
+        "nsis",
+        "zip"
+      ]
+    }
   }
 }
