@@ -88,6 +88,56 @@ var bag = {
     });
 }
 
+// handle things on the custom tags
+{
+    let tagsTab = document.querySelector("#custom-tags-tab");
+    let loadedTags = false;
+    let loadedDefaults = false;
+    tagsTab.addEventListener('click', () => {
+	if(!loadedTags) {
+	    loadedTags = true;
+	    let lines = fs.readFileSync("custom.txt", "utf-8").split("\n").filter(Boolean);
+	    for(let i = 0; i < lines.length; i++) {
+		let parts = lines[i].split(':', 2);
+		let key = parts[0].trim();
+		let name = parts[1].trim();
+		let div = document.querySelector('#custom-tags');
+		let fdiv = document.createElement('div');
+		fdiv.setAttribute("class", "mdl-textfield mdl-js-textfield mdl-textfield--floating-label");
+		let input = document.createElement('input');
+		input.setAttribute("class", "mdl-textfield__input");
+		input.setAttribute("type", "text");
+		input.setAttribute("id", "custom-" + key);
+		fdiv.appendChild(input);
+		let label = document.createElement('label');
+		label.setAttribute("class", "mdl-textfield__label");
+		label.setAttribute("for", "custom-" + key);
+		label.appendChild(document.createTextNode(name));
+		fdiv.appendChild(label);
+		div.appendChild(fdiv);
+		div.appendChild(document.createElement('br'));
+	    }
+	    componentHandler.upgradeDom();
+	}
+	if(!loadedDefaults) {
+            loadedDefaults = true;
+            let lines = fs.readFileSync("defaults.txt", "utf-8").split("\n").filter(Boolean);
+            for(let i = 0; i < lines.length; i++) {
+                let parts = lines[i].split(':', 2);
+                let key = parts[0].trim();
+                let value = parts[1].trim();
+                let field = document.querySelector("#custom-" + key);
+                if(field) {
+                    field.parentNode.MaterialTextfield.change(value);
+                }
+            }
+        }
+    });
+}
+
+
+
+
 // handle things in the create bag tab
 {
     let bagTab = document.querySelector('#bag-tab');
@@ -128,6 +178,22 @@ var bag = {
             }
         }
 
+	// read the custom tags:  find all nodes with custom- as the id
+	console.log("starting custom tags");
+	for(let i of document.getElementsByTagName('input')) {
+	    console.log(i);
+	    if(i.id.startsWith("custom-")) {
+		let text = i.value.trim();
+		let name = i.id.substring(7);
+		if(text != "") {
+		    bag.tags[name] = text;
+		} else {
+		    delete bag.tags[name];
+		}
+	    }
+	}
+	console.log("done with custom tags");
+	
 
         if(errors.length == 0) {
             status.textContent = "Bag is ready to build!";

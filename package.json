@@ -1,5 +1,5 @@
 {
-  "name": "BagIt Utility",
+  "name": "BagIt-Utility",
   "version": "0.1.0",
   "description": "A proof-of-concept bag creator",
   "main": "main.js",

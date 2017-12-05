@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>BagIt!</title>
+    <title>BagIt-Utility</title>
     <link rel="stylesheet" href="./material.css">
     <script src="./material.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -22,7 +22,7 @@
         <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
           <a href="#fixed-tab-1" class="mdl-layout__tab is-active">Source Content</a>
           <a id="std-tags-tab" href="#fixed-tab-2" class="mdl-layout__tab">Standard Tags</a>
-          <!-- <a href="#fixed-tab-3" class="mdl-layout__tab">Custom Tags</a> -->
+          <a id="custom-tags-tab" href="#fixed-tab-3" class="mdl-layout__tab">Custom Tags</a>
           <a id="bag-tab" href="#fixed-tab-4" class="mdl-layout__tab">Create Bag</a>
         </div>
       </header>
@@ -103,15 +103,11 @@
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
               <input class="mdl-textfield__input" type="text" id="std-Internal-Sender-Description">
               <label class="mdl-textfield__label" for="std-Internal-Sender-Description">Internal-Sender-Description</label>
-            </div>
-            
-            
-            
-            
+            </div>                       
           </div>
         </section>
         <section class="mdl-layout__tab-panel" id="fixed-tab-3">
-          <div class="page-content">Not implemented yet
+          <div id="custom-tags" class="page-content">
             
           </div>
         </section>
