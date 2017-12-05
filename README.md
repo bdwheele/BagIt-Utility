@@ -13,6 +13,8 @@ Using the utility:
 * Select a directory to bag in the "Source Files" tab by clicking the folder FAB
 * Enter the metadata on the "Standard Tags" tab.
   * pre-defined values can be supplied by modifying defaults.txt
+* Enter any defined custom tags
+  * custom tags are defined in custom.txt with each tag as "<tag name>:<label text>"
 * Create the bag by pressing the wrench FAB on the "Create Bag" tab
   * If there are errors in the configuration, it will list them in the status
 
