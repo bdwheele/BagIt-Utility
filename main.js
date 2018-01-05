@@ -151,10 +151,10 @@ ipc.on('build-bag', async function(event, bag, filename) {
     const baseDir = path.basename(filename, '.tar') + "/";
     let tarballStream = fs.createWriteStream(filename, { defaultEncoding: 'binary' });
     pack.pipe(tarballStream);
-    pack.entry({name: baseDir + "bagit.txt"}, "BagIt-Version: 0.97\nTag-File-Character-Encoding: UTF-8\n");
+    pack.entry({name: baseDir + "bagit.txt"}, "BagIt-Version: 0.97\r\nTag-File-Character-Encoding: UTF-8\r\n");
     let bagInfo = "";
     for(let tag in bag.tags) {
-        bagInfo += tag + ": " + bag.tags[tag] + "\n";
+        bagInfo += tag + ": " + bag.tags[tag] + "\r\n";
     }
     pack.entry({name: baseDir + "bag-info.txt"}, bagInfo);
     bag.manifest = "";
@@ -174,7 +174,7 @@ ipc.on('build-bag', async function(event, bag, filename) {
                                     });
             let input = fs.createReadStream(bag.sourceDir + "/" + file);
             let dstream = digestStream('md5', 'hex', function(digest, length) {
-                bag.manifest += digest + "  data/" + file + "\n";
+                bag.manifest += digest + "  data/" + file + "\r\n";
             });
             input.pipe(dstream).pipe(entry);            
         });
