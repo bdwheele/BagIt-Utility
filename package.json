@@ -14,7 +14,7 @@
   "author": "Brian Wheeler <bdwheele@indiana.edu>",
   "license": "Apache-2.0",
   "devDependencies": {
-    "electron": "~1.6.2",
+    "electron": "~9.1.0",
     "electron-builder": "^18.0.1"
   },
   "dependencies": {
